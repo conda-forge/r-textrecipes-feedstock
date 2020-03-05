@@ -1,4 +1,4 @@
-{% set version = '0.0.2' %}
+{% set version = "0.1.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/textrecipes_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/textrecipes/textrecipes_{{ version }}.tar.gz
-  sha256: 50253d914ba6d874d6647ebf0210cd3b402bea24dcd3ab200aa3bfc7d1477af2
+  sha256: 4cb272cfecf51db9dbf8a6366aa62a72da256cebea2eb005b3d1c2bb822c2b16
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -64,12 +64,11 @@ test:
 about:
   home: https://github.com/tidymodels/textrecipes
   license: MIT
-  summary: Converting text to numerical features requires specifically created procedures, which
-    are implemented as steps according to the 'recipes' package. These steps allows
-    for tokenization, filtering, counting (tf and tfidf) and feature hashing.
+  summary: Converting text to numerical features requires specifically created procedures, which are implemented as steps according to the 'recipes' package. These
+    steps allows for tokenization, filtering, counting (tf and tfidf) and feature hashing.
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
