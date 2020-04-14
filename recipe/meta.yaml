@@ -25,37 +25,44 @@ requirements:
     - {{posix}}zip               # [win]
   host:
     - r-base
-    - r-snowballc
+    - r-dials
     - r-dplyr
     - r-generics
-    - r-lifecycle
     - r-magrittr
+    - r-matrix
+    - r-modeldata
     - r-purrr
+    - r-rcpp
     - r-recipes >=0.1.4
     - r-rlang
+    - r-snowballc
     - r-stopwords
     - r-stringr
-    - r-text2vec
-    - r-textfeatures >=0.3.3
     - r-tibble
+    - r-tidyr
     - r-tokenizers
+    - r-vctrs
   run:
     - r-base
-    - r-snowballc
+    - r-base
+    - r-dials
     - r-dplyr
     - r-generics
-    - r-lifecycle
     - r-magrittr
+    - r-matrix
+    - r-modeldata
     - r-purrr
+    - r-rcpp
     - r-recipes >=0.1.4
     - r-rlang
+    - r-snowballc
     - r-stopwords
     - r-stringr
-    - r-text2vec
-    - r-textfeatures >=0.3.3
     - r-tibble
+    - r-tidyr
     - r-tokenizers
-
+    - r-vctrs
+    
 test:
   commands:
     - $R -e "library('textrecipes')"           # [not win]
