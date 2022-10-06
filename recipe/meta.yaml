@@ -1,4 +1,4 @@
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/textrecipes_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/textrecipes/textrecipes_{{ version }}.tar.gz
-  sha256: 43e5381e2c58e5f61d6d957e659e05beeada148fc55867ca4e876ffb42bbb03c
+  sha256: 40818afeebbfd4225458b60a8eb2a01b0fb9b9356bf5eded5fc9e1569f4b1da5
 
 build:
   merge_build_host: true  # [win]
