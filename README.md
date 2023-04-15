@@ -1,11 +1,11 @@
-About r-textrecipes
-===================
+About r-textrecipes-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-textrecipes-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/tidymodels/textrecipes
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-textrecipes-feedstock/blob/main/LICENSE.txt)
 
 Summary: Converting text to numerical features requires specifically created procedures, which are implemented as steps according to the 'recipes' package. These steps allows for tokenization, filtering, counting (tf and tfidf) and feature hashing.
 
