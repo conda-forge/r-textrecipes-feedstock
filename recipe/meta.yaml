@@ -14,47 +14,71 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 0
-  noarch: generic
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
+  skip: true  # [win]
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-cpp11                      # [build_platform != target_platform]
+    - r-dplyr                      # [build_platform != target_platform]
+    - r-generics                   # [build_platform != target_platform]
+    - r-glue                       # [build_platform != target_platform]
+    - r-lifecycle                  # [build_platform != target_platform]
+    - r-magrittr                   # [build_platform != target_platform]
+    - r-matrix                     # [build_platform != target_platform]
+    - r-purrr                      # [build_platform != target_platform]
+    - r-recipes                    # [build_platform != target_platform]
+    - r-rlang                      # [build_platform != target_platform]
+    - r-snowballc                  # [build_platform != target_platform]
+    - r-tibble                     # [build_platform != target_platform]
+    - r-tokenizers                 # [build_platform != target_platform]
+    - r-vctrs                      # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-lifecycle
+    - r-cpp11
     - r-dplyr
     - r-generics >=0.1.0
+    - r-glue
+    - r-lifecycle
     - r-magrittr
     - r-matrix
     - r-purrr
-    - r-rcpp
-    - r-recipes >=1.0.0
+    - r-recipes >=1.0.7
     - r-rlang
     - r-snowballc
     - r-tibble
     - r-tokenizers
     - r-vctrs
-    - r-glue
   run:
     - r-base
-    - r-lifecycle
+    - r-cpp11
     - r-dplyr
     - r-generics >=0.1.0
+    - r-glue
+    - r-lifecycle
     - r-magrittr
     - r-matrix
     - r-purrr
-    - r-rcpp
-    - r-recipes >=1.0.0
+    - r-recipes >=1.0.7
     - r-rlang
     - r-snowballc
     - r-tibble
     - r-tokenizers
     - r-vctrs
-    - r-glue
+    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
@@ -62,7 +86,8 @@ test:
     - "\"%R%\" -e \"library('textrecipes')\""  # [win]
 
 about:
-  home: https://github.com/tidymodels/textrecipes
+  home: https://textrecipes.tidymodels.org/
+  dev_url: https://github.com/tidymodels/textrecipes
   license: MIT
   summary: Converting text to numerical features requires specifically created procedures, which are implemented as steps according to the 'recipes' package. These steps allows for tokenization, filtering, counting (tf and tfidf) and feature hashing.
   license_family: MIT
@@ -74,27 +99,3 @@ extra:
   recipe-maintainers:
     - conda-forge/r
     - philip-khor
-
-# Package: textrecipes
-# Title: Extra 'Recipes' for Text Processing
-# Version: 0.0.2
-# Authors@R: person(given = "Emil", family = "Hvitfeldt", role = c("aut", "cre"), email = "emilhhvitfeldt@gmail.com", comment = c(ORCID = "0000-0002-0679-1945"))
-# Description: Converting text to numerical features requires specifically created procedures, which are implemented as steps according to the 'recipes' package. These steps allows for tokenization, filtering, counting (tf and tfidf) and feature hashing.
-# License: MIT + file LICENSE
-# URL: https://github.com/tidymodels/textrecipes
-# BugReports: https://github.com/tidymodels/textrecipes/issues
-# Depends: R (>= 2.10), recipes (>= 0.1.4)
-# Imports: generics, rlang, tokenizers, dplyr, tibble, purrr, SnowballC, stopwords, magrittr, stringr, text2vec, textfeatures (>= 0.3.3), lifecycle
-# Suggests: covr, testthat (>= 2.1.0), knitr, rmarkdown
-# VignetteBuilder: knitr
-# RdMacros: lifecycle
-# Encoding: UTF-8
-# LazyData: true
-# RoxygenNote: 6.1.1
-# SystemRequirements: GNU make, C++11
-# NeedsCompilation: no
-# Packaged: 2019-09-06 21:42:42 UTC; emilhvitfeldthansen
-# Author: Emil Hvitfeldt [aut, cre] (<https://orcid.org/0000-0002-0679-1945>)
-# Maintainer: Emil Hvitfeldt <emilhhvitfeldt@gmail.com>
-# Repository: CRAN
-# Date/Publication: 2019-09-07 11:20:02 UTC
