@@ -1,4 +1,4 @@
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/textrecipes_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/textrecipes/textrecipes_{{ version }}.tar.gz
-  sha256: fe66c449c6d401a7c9767530031265743e0f15d12a148ea05fea971549f3406e
+  sha256: c3ee9927b58f5e1b3e6174c3d9a16e233ce8b5e66747fc647d2de8897c22d7d4
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
